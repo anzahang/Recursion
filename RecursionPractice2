@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class RecursionExercises {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int factorial = factorial(n);
+		System.out.println(factorial);
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		
+		System.out.println(GCF(a,b));
+		System.out.println(GCF2(a,b));
+		
+		double base = sc.nextDouble();
+		double power = sc.nextDouble();
+		
+		System.out.println(exponent(base,power));
+	}
+
+
+	private static int factorial(int n) {
+		 if (n >= 1) return n * factorial(n - 1);
+	     
+	        else return 1;
+	}
+
+
+	public static double exponent(double x, double n){
+	    if(n < 1){
+	        return 1;
+	    }else{
+	       return x * exponent(x, n-1);
+	    }
+	}
+
+
+	private static int GCF2(int m, int n) {
+		if(m<n) {
+			int temp = m;
+			m=n;
+			n=temp;
+		}
+		int r = m-n;
+		if(r == 0) {
+			return n;
+		}
+		int r2 = m-n;
+		return GCF2(n,r2);
+	}
+	
+
+
+	private static int GCF(int a, int b) {
+		if(a<b) {
+			int temp = a;
+			a=b;
+			b=temp;
+		}
+		if(a%b == 0) {
+			return b;
+		}
+		int r = a%b;
+		return GCF(b,r);
+	}
+
+}
