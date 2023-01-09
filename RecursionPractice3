@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class RecursionExercises2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int num = sc.nextInt();
+		
+		System.out.println(laugh(num));
+		
+		int[] ar = new int[10];
+		for(int i=0;i<ar.length;i++) {
+			ar[i]=sc.nextInt();
+		}
+		System.out.println(addUp(ar,ar.length));
+		
+		int n =sc.nextInt();
+		System.out.println(fibonacci(n));
+	}
+
+	private static int fibonacci(int n) {
+		if(n==0) return 0;
+		if(n==1) return 1;
+		return fibonacci(n-1) + fibonacci(n-2);
+		
+	}
+
+	private static int addUp(int[] ar,int n) {
+		int total = 0;
+		 //base or terminating condition
+        if (n <= 0) {
+           return 0;
+         }
+
+         //Calling method recursively
+         return addUp(ar, n-1) + ar[n-1];
+      }
+
+	private static String laugh(int n) {
+		String laugh = "HA ";
+		 if(n < 1){
+		        return "";
+		    }else{
+		       return laugh + laugh(n-1);
+		    }
+		}
+	}
+
+
